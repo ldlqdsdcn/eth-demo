@@ -13,24 +13,25 @@ var bytecode = compiledCode.contracts[":EventTest"].bytecode;
 var abiDefinitionStr = compiledCode.contracts[":EventTest"].interface;
 fs.writeFileSync("/home/liudalei/code/eth-demo/contract/bin/EventTest.abi", abiDefinitionStr);
 var abiDefinition = JSON.parse(abiDefinitionStr);
-var contract=web3.eth.contract(abiDefinition);
+var contract = web3.eth.contract(abiDefinition);
 console.log(web3.eth.accounts[0]);
-web3.personal.unlockAccount(web3.eth.accounts[0],"wms123456");
-console.log("estimateGas:"+web3.eth.estimateGas({data:"0x"+bytecode}))
-//web3.eth.estimateGas({data:bytecode});
-var deployedContract=contract.new({from:web3.eth.accounts[0],gas:600265,data:"0x"+bytecode},function (error,myContract) {
-    if(!error)
-    {
-        console.log("myContract.address="+myContract.address);
-        console.log("myContract.transactionHash"+myContract.transactionHash);
+web3.personal.unlockAccount(web3.eth.accounts[0], "wms123456");
+console.log("estimateGas:" + web3.eth.estimateGas({data: "0x" + bytecode}));
+var deployedContract = contract.new({
+    from: web3.eth.accounts[0],
+    gas: 600265,
+    data: "0x" + bytecode
+}, function (error, myContract) {
+    if (!error) {
+        console.log("myContract.address=" + myContract.address);
+        console.log("myContract.transactionHash" + myContract.transactionHash);
     }
-    else
-    {
-        console.log("error:"+error.message);
+    else {
+        console.log("error:" + error.message);
     }
 
 });
-while (deployedContract.address==undefined) {
+while (deployedContract.address == undefined) {
     require("deasync").sleep('100');
 }
-console.log("contract address:"+deployedContract.address);
+console.log("contract address:" + deployedContract.address);
