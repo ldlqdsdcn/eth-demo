@@ -18,16 +18,17 @@
 >     2. Configure new genesis
 >     3. Track new remote server
 >     4. Deploy network components
->     输入2     
-###Which consensus engine to use? (default = clique)
+>     输入2   
+  
+### Which consensus engine to use? (default = clique)
     1. Ethash - proof-of-work
     2. Clique - proof-of-authority
     输入：1
-###Which accounts should be pre-funded? (advisable at least one)
+###W hich accounts should be pre-funded? (advisable at least one)
     直接回车
-###Specify your chain/network ID if you want an explicit one (default = random)
+### Specify your chain/network ID if you want an explicit one (default = random)
     随便输入（必须是字母）
-###What would you like to do? (default = stats)
+### What would you like to do? (default = stats)
      1. Show network stats
      2. Manage existing genesis
      3. Track new remote server
@@ -39,7 +40,7 @@
       输入2
 
 
-###启动以太坊客户端
+### 启动以太坊客户端
     mkdir node
     geth --datadir node account new
     启动以太坊客户端
