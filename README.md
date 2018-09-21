@@ -7,6 +7,8 @@
     版本：v8.10.0
  ###webStorm
     版本随意
+###solidity 开发工具
+http://remix.ethereum.org    
  
 ###创建创世文件
 
